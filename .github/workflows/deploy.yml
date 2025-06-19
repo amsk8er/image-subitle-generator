@@ -1,0 +1,38 @@
+name: 部署到 Cloudflare Pages
+
+on:
+  # 当推送到main分支时触发
+  push:
+    branches: [ main ]
+  
+  # 允许手动触发工作流
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: 部署到 Cloudflare Pages
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        
+      - name: 部署到 Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          # Cloudflare API Token（需要在GitHub Secrets中配置）
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # Cloudflare Account ID（需要在GitHub Secrets中配置）
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # 项目名称（将在Cloudflare Pages中创建）
+          projectName: image-subtitle-generator
+          # 部署目录（当前目录的所有文件）
+          directory: ./
+          # Git提供商
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 部署完成通知
+        run: |
+          echo "🎉 部署完成！"
+          echo "📱 你的图片字幕生成器已更新"
+          echo "🌐 访问地址: https://tools.cloudeals101.com" 
