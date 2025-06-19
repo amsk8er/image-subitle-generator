@@ -1,0 +1,453 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基础样式 */
+body {
+    font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 页面头部 */
+.header {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #718096;
+}
+
+/* 主要内容布局 */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* 控制面板样式 */
+.control-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+}
+
+.control-panel h3 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* 上传区域样式 */
+.upload-section {
+    margin-bottom: 25px;
+}
+
+.upload-area {
+    border: 3px dashed #cbd5e0;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #f7fafc, #edf2f7);
+}
+
+.upload-area:hover {
+    border-color: #667eea;
+    background: linear-gradient(145deg, #edf2f7, #e2e8f0);
+    transform: translateY(-2px);
+}
+
+.upload-area.dragover {
+    border-color: #48bb78;
+    background: linear-gradient(145deg, #f0fff4, #c6f6d5);
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.upload-content p {
+    margin: 8px 0;
+    color: #4a5568;
+}
+
+.upload-hint {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+/* 字幕和水印区域 */
+.subtitle-section,
+.watermark-section {
+    margin-bottom: 25px;
+}
+
+#subtitleText,
+#watermarkText {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+#subtitleText:focus,
+#watermarkText:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#subtitleText {
+    min-height: 100px;
+    margin-bottom: 15px;
+}
+
+/* 样式组 */
+.style-group {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.style-group h4 {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 12px;
+}
+
+.style-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.style-row:last-child {
+    margin-bottom: 0;
+}
+
+.style-row label {
+    font-weight: 500;
+    color: #4a5568;
+    white-space: nowrap;
+}
+
+/* 表单控件样式 */
+input[type="range"] {
+    flex: 1;
+    max-width: 120px;
+    margin: 0 10px;
+}
+
+input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+select {
+    padding: 6px 10px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    background: white;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* 范围滑块数值显示 */
+span[id$="Value"] {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 45px;
+    text-align: right;
+}
+
+/* 按钮样式 */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(145deg, #48bb78, #38a169);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(145deg, #a0aec0, #718096);
+    color: white;
+}
+
+/* 预览面板 */
+.preview-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.preview-panel h3 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* 预览容器 */
+.preview-container {
+    background: #f7fafc;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-placeholder {
+    color: #a0aec0;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.preview-placeholder p {
+    font-size: 1.1rem;
+}
+
+/* Canvas 样式 */
+#previewCanvas {
+    max-width: 100%;
+    max-height: 600px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片信息 */
+.image-info {
+    margin-top: 15px;
+    padding: 12px;
+    background: #edf2f7;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.image-info p {
+    margin: 4px 0;
+    color: #4a5568;
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.footer p {
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .style-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .style-row label {
+        margin-bottom: 5px;
+    }
+    
+    input[type="range"] {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .control-panel,
+    .preview-panel {
+        padding: 20px;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .upload-area {
+        padding: 20px;
+    }
+    
+    .upload-icon {
+        font-size: 2.5rem;
+    }
+    
+    .control-panel,
+    .preview-panel {
+        padding: 15px;
+    }
+    
+    .action-buttons {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.control-panel,
+.preview-panel {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+} 
